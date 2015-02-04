@@ -1,8 +1,8 @@
 .Rproj.user
 .Rhistory
 .RData
-./data
-./data/*
-./data/*.RData
-./data/.RData
-./data/GSE15222_webster2009.RData
+/data
+/data/*
+/data/*.RData
+/data/.RData
+/data/GSE15222_webster2009.RData
