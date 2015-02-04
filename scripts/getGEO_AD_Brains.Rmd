@@ -48,9 +48,7 @@ save(gset, file="./data/GSE15222_webster2009.RData",compress=TRUE)
 #######################
 # add to .gitignore
 system( paste( "echo \"./data/GSE15222_webster2009.RData\" >> .gitignore",sep="" ) )
-system( paste( "git add --all ./.gitignore; git commit -am \"gitignore\";git status",sep="" ) )
-system( paste( "git add --all ./*; git commit -am \"add\";git status",sep="" ) )
-system( paste( "git rm --cached ./data/GSE15222_webster2009.RData",sep="" ) )
+###system( paste( "git rm --cached ./data/GSE15222_webster2009.RData",sep="" ) )
 
 ```
 
