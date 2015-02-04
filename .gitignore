@@ -1,7 +1,10 @@
 .Rproj.user
 .Rhistory
 .RData
+/scripts/.RData
+/scripts/.Rhistory
 /data
+/data/.Rhistory
 /data/*
 /data/*.RData
 /data/.RData
