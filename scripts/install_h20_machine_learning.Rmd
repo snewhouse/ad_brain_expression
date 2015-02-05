@@ -1,0 +1,42 @@
+---
+title: "intall h20 in R"
+author: "Dr Stephen Newhouse"
+date: "05/02/2015"
+output: html_document
+---
+
+
+
+```{r}
+# The following two commands remove any previously installed H2O packages for R.
+if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
+if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
+
+# Next, we download, install and initialize the H2O package for R.
+install.packages("h2o", repos=(c("http://h2o-release.s3.amazonaws.com/h2o/rel-noether/1/R", getOption("repos"))))
+library(h2o)
+localH2O = h2o.init()
+
+# Finally, let's run a demo to see H2O at work.
+demo(h2o.glm)
+```
+
+
+```{bash}
+Successfully connected to http://127.0.0.1:54321 
+
+R is connected to H2O cluster:
+    H2O cluster uptime:         2 seconds 323 milliseconds 
+    H2O cluster version:        2.8.4.1 
+    H2O cluster name:           H2O_started_from_R 
+    H2O cluster total nodes:    1 
+    H2O cluster total memory:   6.97 GB 
+    H2O cluster total cores:    8 
+    H2O cluster allowed cores:  2 
+    H2O cluster healthy:        TRUE 
+
+Note:  As started, H2O is limited to the CRAN default of 2 CPUs.
+       Shut down and restart H2O as shown below to use all your CPUs.
+           > h2o.shutdown(localH2O)
+           > localH2O = h2o.init(nthreads = -1)
+```
