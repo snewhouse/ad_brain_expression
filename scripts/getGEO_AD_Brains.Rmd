@@ -53,3 +53,123 @@ system( paste( "echo \"./data/GSE15222_webster2009.RData\" >> .gitignore",sep=""
 ```
 
 ***********************************
+
+E-GEOD-48350  
+Alzheimer's Disease Dataset  
+transcription profiling by array  
+Homo sapiens  
+253   
+
+```{r getGEO_GSE48350, eval=FALSE}
+gset48350 <- getGEO("GSE48350", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset48350, file="./data/GSE48350.RData",compress=TRUE)
+system( paste( "echo \"./data/GSE48350.RData\" >> .gitignore",sep="" ) )
+```
+
+*********************************** 
+
+E-GEOD-53890  
+REST and Stress Resistance in Aging and Alzheimer’s Disease  
+transcription profiling by array  
+Homo sapiens  
+41  
+
+***********************************
+
+E-GEOD-29378  
+Genes and Pathways Underlying Regional and Cell Type Changes in Alzheimer's Disease  
+transcription profiling by array  
+Homo sapiens  
+63  
+
+***********************************
+
+E-GEOD-44772  
+Multi-tissue gene expression profiles of human brain  
+transcription profiling by array  
+Homo sapiens  
+690  
+
+***********************************
+
+E-GEOD-45596  
+Brain microvessel: Alzheimer disease vs normal  
+transcription profiling by array  
+Homo sapiens  
+20  
+
+***********************************
+
+E-GEOD-13214  
+Evaluation of gene expression profile in postmortem brain with Alzheimer´s disease-type neuropathological changes  
+transcription profiling by array  
+Homo sapiens  
+128  
+
+***********************************
+
+E-GEOD-36980  
+Expression data from post mortem Alzheimer's disease brains  
+transcription profiling by array  
+Homo sapiens  
+79  
+
+***********************************
+
+E-GEOD-28146  
+Microarray analyses of laser-captured hippocampus reveal distinct gray and white matter signatures associated with incipient Alzheimer’s disease  
+transcription profiling by array  
+Homo sapiens  
+30  
+
+***********************************
+
+E-MTAB-656  
+Alternative splicing in human temporal cortex  
+transcription profiling by array  
+Homo sapiens  
+25  
+
+***********************************
+
+E-GEOD-26927  
+Common neuroinflammatory pathways in neurodegenerative diseases.  
+transcription profiling by array  
+Homo sapiens  
+118  
+
+***********************************
+
+E-MEXP-2280  
+Transcription profiling of patients with four neurodegenerative disorders distinguishes tauopathies and identifies shared molecular pathways  
+transcription profiling by array  
+Homo sapiens  
+31  
+
+***********************************
+
+E-GEOD-1297  
+Transcription profiling by array of hippocampus from patients with Alzheimer's disease of varying severity
+transcription profiling by array  
+Homo sapiens  
+31  
+
+***********************************
+
+E-GEOD-6834  
+Temporal lobe epilepsy and Alzheimer's disease  
+transcription profiling by array  
+Homo sapiens  
+60  
+
+This SuperSeries is composed of the following subset Series: GSE6771: Temporal Cortex Control (mesial temporal lobe epilepsy control) GSE6773: Temporal neocortex mesial temporal lobe epilepsy GSE6774: Temporal Cortex Control (Alzheimer's disease control) GSE6775: Temporal Cortex Alzheimer's Disease GSE6777: Cerebellum Alzheimer's Disease GSE6778: Cerebellum Control (Alzheimer's disease control) Keywords: SuperSeries Refer to individual Series
+
+***********************************
+
+E-GEOD-5281  
+Alzheimer's disease and the normal aged brain (steph-affy-human-433773)  
+transcription profiling by array  
+Homo sapiens  
+161  
+
+***********************************
