@@ -21,7 +21,7 @@ Getting the data in one place...
 
 > We recently surveyed the relationship between the human brain transcriptome and genome in a series of neuropathologically normal postmortem samples. We have now analyzed additional samples with a confirmed pathologic diagnosis of late-onset Alzheimer disease (LOAD; final n = 188 controls, 176 cases). Nine percent of the cortical transcripts that we analyzed had expression profiles correlated with their genotypes in the combined cohort, and approximately 5% of transcripts had SNP-transcript relationships that could distinguish LOAD samples. Two of these transcripts have been previously implicated in LOAD candidate-gene SNP-expression screens. This study shows how the relationship between common inherited genetic variants and brain transcript expression can be used in the study of human brain disorders. We suggest that studying the transcriptome as a quantitative endo-phenotype has greater power for discovering risk SNPs influencing expression than the use of discrete diagnostic categories such as presence or absence of disease.
 
-```{r getGEO_GSE15222, eval=FALSE}
+```{r load_libs, eval=FALSE}
 
 ################################################################
 #  Get Data
@@ -32,7 +32,9 @@ library(limma)
 ################
 # set working dir
 setwd("/media/sjnewhouse/D/ad_brain_expression/")
+```
 
+```{r getGEO_GSE15222, eval=FALSE}
 ###############################################
 # load series and platform data from GEO
 #
@@ -74,6 +76,12 @@ transcription profiling by array
 Homo sapiens  
 41  
 
+```{r getGEO_GSE53890, eval=FALSE}
+gset53890 <- getGEO("GSE53890", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset53890, file="./data/GSE53890.RData",compress=TRUE)
+system( paste( "echo \"./data/GSE53890.RData\" >> .gitignore",sep="" ) )
+```
+
 ***********************************
 
 E-GEOD-29378  
@@ -81,6 +89,12 @@ Genes and Pathways Underlying Regional and Cell Type Changes in Alzheimer's Dise
 transcription profiling by array  
 Homo sapiens  
 63  
+
+```{r getGEO_GSE29378  , eval=FALSE}
+gset29378 <- getGEO("GSE29378", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset29378, file="./data/GSE29378.RData",compress=TRUE)
+system( paste( "echo \"./data/GSE29378.RData\" >> .gitignore",sep="" ) )
+```
 
 ***********************************
 
