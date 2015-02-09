@@ -38,19 +38,10 @@ setwd("/media/sjnewhouse/D/ad_brain_expression/")
 ###############################################
 # load series and platform data from GEO
 #
-gset <- getGEO("GSE15222", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
-
-if (length(gset) > 1) idx <- grep("GPL2700", attr(gset, "names")) else idx <- 1
-gset <- gset[[idx]]
-
-#################
-# save
+gset15222 <- getGEO("GSE15222", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
 save(gset, file="./data/GSE15222_webster2009.RData",compress=TRUE)
-
-#######################
-# add to .gitignore
 system( paste( "echo \"./data/GSE15222_webster2009.RData\" >> .gitignore",sep="" ) )
-###system( paste( "git rm --cached ./data/GSE15222_webster2009.RData",sep="" ) )
+
 
 ```
 
