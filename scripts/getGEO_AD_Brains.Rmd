@@ -9,21 +9,12 @@ output: html_document
 
 ## getGEO
 
-Getting the data in one place...
-
-**********
-
-#### GSE15222
-#### Genetic Control of Human Brain Transcript Expression in Alzheimer Disease  
-- http://www.sciencedirect.com/science/article/pii/S0002929709001086  
-
-**ABSTRACT**  
-
-> We recently surveyed the relationship between the human brain transcriptome and genome in a series of neuropathologically normal postmortem samples. We have now analyzed additional samples with a confirmed pathologic diagnosis of late-onset Alzheimer disease (LOAD; final n = 188 controls, 176 cases). Nine percent of the cortical transcripts that we analyzed had expression profiles correlated with their genotypes in the combined cohort, and approximately 5% of transcripts had SNP-transcript relationships that could distinguish LOAD samples. Two of these transcripts have been previously implicated in LOAD candidate-gene SNP-expression screens. This study shows how the relationship between common inherited genetic variants and brain transcript expression can be used in the study of human brain disorders. We suggest that studying the transcriptome as a quantitative endo-phenotype has greater power for discovering risk SNPs influencing expression than the use of discrete diagnostic categories such as presence or absence of disease.
-
 ```{r load_libs, eval=FALSE}
 ################################################################
 #  Get Data
+source("http://bioconductor.org/biocLite.R")
+biocLite()
+biocLite(c("Biobase","limma","GEOquery"), dependencies=TRUE)
 library(Biobase)
 library(GEOquery)
 library(limma)
@@ -33,19 +24,6 @@ library(limma)
 setwd("/media/sjnewhouse/D/ad_brain_expression/")
 ```
 
-
-```{r getGEO_GSE15222, eval=FALSE}
-###############################################
-# load series and platform data from GEO
-#
-gset15222 <- getGEO("GSE15222", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
-save(gset, file="./data/GSE15222_webster2009.RData",compress=TRUE)
-system( paste( "echo \"./data/GSE15222_webster2009.RData\" >> .gitignore",sep="" ) )
-
-
-```
-
-***********************************
 
 ## Array Express Data 
 
@@ -62,8 +40,79 @@ E-GEOD-1297
 E-GEOD-6834  
 E-GEOD-5281  
  
+*Getting the data in one place...*
+
+**********
+
+#### GSE15222
+#### Genetic Control of Human Brain Transcript Expression in Alzheimer Disease  
+- http://www.sciencedirect.com/science/article/pii/S0002929709001086  
+- Webster JA, Gibbs JR, Clarke J, Ray M et al. Genetic control of human brain transcript expression in Alzheimer disease. Am J Hum Genet 2009 Apr;84(4):445-58. PMID: 19361613  
+
+**ABSTRACT**  
+> We recently surveyed the relationship between the human brain transcriptome and genome in a series of neuropathologically normal postmortem samples. We have now analyzed additional samples with a confirmed pathologic diagnosis of late-onset Alzheimer disease (LOAD; final n = 188 controls, 176 cases). Nine percent of the cortical transcripts that we analyzed had expression profiles correlated with their genotypes in the combined cohort, and approximately 5% of transcripts had SNP-transcript relationships that could distinguish LOAD samples. Two of these transcripts have been previously implicated in LOAD candidate-gene SNP-expression screens. This study shows how the relationship between common inherited genetic variants and brain transcript expression can be used in the study of human brain disorders. We suggest that studying the transcriptome as a quantitative endo-phenotype has greater power for discovering risk SNPs influencing expression than the use of discrete diagnostic categories such as presence or absence of disease.
+
+
+```{r getGEO_GSE15222, eval=FALSE}
+###############################################
+# load series and platform data from GEO
+#
+gset_GSE15222 <- getGEO("GSE15222", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset_GSE15222, file="./data/gset_GSE15222.RData",compress=TRUE)
+system( paste( "echo \"./data/gset_GSE15222.RData\" >> .gitignore",sep="" ) )
+rm("gset_GSE15222");gc()
+# GPL2700
+```
+
+***********************************
+
+#### GSE44772
+#### Integrated Systems Approach Identifies Genetic Nodes and Networks in Late-Onset Alzheimer’s Disease
+
+- Bin Zhang  
+- http://www.sciencedirect.com/science/article/pii/S0092867413003875#  
+- Zhang B, Gaiteri C, Bodea LG, Wang Z et al. Integrated systems approach identifies genetic nodes and networks in late-onset Alzheimer's disease. Cell 2013 Apr 25;153(3):707-20. PMID: 23622250  
+
+**ABSTRACT** 
+> The genetics of complex disease produce alterations in the molecular interactions of cellular pathways whose collective effect may become clear through the organized structure of molecular networks. To characterize molecular systems associated with late-onset Alzheimer’s disease (LOAD), we constructed gene-regulatory networks in 1,647 postmortem brain tissues from LOAD patients and nondemented subjects, and we demonstrate that LOAD reconfigures specific portions of the molecular interaction structure. Through an integrative network-based approach, we rank-ordered these network structures for relevance to LOAD pathology, highlighting an immune- and microglia-specific module that is dominated by genes involved in pathogen phagocytosis, contains TYROBP as a key regulator, and is upregulated in LOAD. Mouse microglia cells overexpressing intact or truncated TYROBP revealed expression changes that significantly overlapped the human brain TYROBP network. Thus the causal network structure is a useful predictor of response to gene perturbations and presents a framework to test models of disease mechanisms underlying LOAD.
+
+Raw gene-expression data together with information related to demographics,
+disease state, and technical covariates are available via the GEO
+database. GEO accession numbers:-  
+
+GSE44772  :- this is the bloody *Multi-tissue gene expression profiles of human brain*
+GSE44768  : These are included in *GSE44772*  
+GSE44770  : These are included in *GSE44772*    
+GSE44771  : These are included in *GSE44772*  
+
+E-GEOD-44772  
+Multi-tissue gene expression profiles of human brain  
+transcription profiling by array  
+Homo sapiens  
+690  
+
+```{r getGEO_GSE44772, eval=FALSE}
+###############################################
+# load series and platform data from GEO
+#
+gset_GSE44772 <- getGEO("GSE44772", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset_GSE44772, file="./data/gset_GSE44772.RData",compress=TRUE)
+system( paste( "echo \"./data/gset_GSE44772.RData\" >> .gitignore",sep="" ) )
+rm("gset_GSE44772");gc()
+# GPL4372
+```
+
+#### DONE
 
 ***********************************  
+
+#### Accelerated neurodegeneration through chaperone-mediated oligomerization of tau
+#### GSE48350 
+- Blair LJ, Nordhues BA, Hill SE, Scaglione KM et al. Accelerated neurodegeneration through chaperone-mediated oligomerization of tau. J Clin Invest 2013 Oct 1;123(10):4158-69. PMID: 23999428  
+
+*ABSTRACT*
+> FK506 binding protein 51kDa (FKBP51/FKBP5) is part of a mature heat shock protein 90kDa (Hsp90) chaperone complex that preserves tau. Microarray analysis of human brains reveal that FKBP51 gene expression selectively increased with age and Alzheimer's disease, which correlated with demethylation of the regulatory regions in the FKBP5 gene. Moreover, FKBP51 levels significantly correlated with Braak pathological staging. In addition, we show that in brains devoid of FKBP51, tau levels are reduced. Recombinant FKBP51 and Hsp90 synergize to block tau clearance through the proteasome and produce T22-positive tau oligomers. Overexpression of FKBP51 in a tau transgenic mouse model revealed that FKBP51 preserved tau species, including phosphorylated and oligomeric tau that have been linked to Alzheimer's disease pathogenesis. FKBP51 blocked amyloid formation and decreased tangle load in the brain. These alterations in tau turnover and aggregate structure culminated in enhanced neurotoxicity. We propose a model where age-associated increases in FKBP51 levels can out-compete the association of other pro-degradation Hsp90 co-chaperones, resulting in neurotoxic tau accumulation. Thus, strategies aimed at attenuating FKBP51 levels or its interaction with Hsp90 could be therapeutically relevant for Alzheimer's disease and other tauopathies.
+These AD cases were processed simultaneously with the control cases (young and aged) included in GSE11882
 
 E-GEOD-48350 
 Alzheimer's Disease Dataset  
@@ -72,10 +121,13 @@ Homo sapiens
 253   
 
 ```{r getGEO_GSE48350, eval=FALSE}
-gset48350 <- getGEO("GSE48350", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
-save(gset48350, file="./data/GSE48350.RData",compress=TRUE)
-system( paste( "echo \"./data/GSE48350.RData\" >> .gitignore",sep="" ) )
+gset_GSE48350 <- getGEO("GSE48350", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
+save(gset_GSE48350, file="./data/gset_GSE48350.RData",compress=TRUE)
+system( paste( "echo \"./data/gset_GSE48350.RData\" >> .gitignore",sep="" ) )
+rm("gset_GSE48350");gc()
 ```
+
+GSE11882
 
 *********************************** 
 
@@ -103,20 +155,6 @@ Homo sapiens
 gset29378 <- getGEO("GSE29378", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
 save(gset29378, file="./data/GSE29378.RData",compress=TRUE)
 system( paste( "echo \"./data/GSE29378.RData\" >> .gitignore",sep="" ) )
-```
-
-***********************************
-
-E-GEOD-44772  
-Multi-tissue gene expression profiles of human brain  
-transcription profiling by array  
-Homo sapiens  
-690  
-
-```{r getGEO_GSE44772  , eval=FALSE}
-gset44772<- getGEO("GSE44772", GSEMatrix =TRUE,AnnotGPL=TRUE,getGPL=TRUE)
-save(gset44772, file="./data/GSE44772 .RData",compress=TRUE)
-system( paste( "echo \"./data/GSE44772 .RData\" >> .gitignore",sep="" ) )
 ```
 
 ***********************************
